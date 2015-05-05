@@ -27,46 +27,76 @@ Errors: only one error is known which is an Assertion error. When incrementing t
 
 
 **Test Plan:**
+
 -REASON	
+
 Does the method saveall() in Library, write back to .txt files, when prompted?
 -INPUT
+
 outbooks  << inbooks.getTitle()  << endl;
 outbooks  << inbooks.getAuthor()  << endl;
 outbooks  << inbooks.getISBN()  << endl;
 outbooks  << inbooks.getStatus()  << endl;
 outbooks  << inbooks.getholder()  << endl;
+
 -OUTPUT
+
 --------
+
 -OUTCOME
+
 FAIL
 
 -REASON	
+
 How to exit the program on command?
+
 -INPUT
+
 cout  << “saving all and exiting.” 
 << endl;
 Exit(0);
+
 -OUTPUT
+
 Saves(writes to .txt files) and exits the program
+
 -OUTCOME
+
 PASS
 
+
 -REASON	
+
 Not being to read from .txt files correctly
+
 -INPUT
+
 Use cin instead of getline
+
 -OUTPUT
+
 Uses no space
+
 -OUTCOME
+
 PASS
 
+
 -REASON	
+
 How to push elements read from .txt files into vectors
+
 -INPUT
+
 Cardlist.push_back(Card(name, phonenum,cardnum, booksout));
+
 -OUTPUT
+
 Stores everything into vectors
+
 -OUTCOME
+
 PASS
 
 
