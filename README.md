@@ -1,7 +1,7 @@
 # Public-Library
 CSC 330 - Term project
 
-Statement of Completeness:
+**Statement of Completeness:**
 
 	Three header files which include Book.h, Card.h, and Library.h and their respective .cpp files with the definitions.
 
@@ -31,34 +31,41 @@ Errors: only one error is known which is an Assertion error. When incrementing t
 Phase 1:
 
 Card() – default constructor
+
 Card(string Name, int phonenum, int cardunum, int booksout)- constructor
+
 ~Card() – deconstructor
+
 void setName(sting Name) – set name
+
 void setphonenum(string phone) – set phone number
+
 void setcardnum(int card) – set card number
+
 void setbookout(int Booksout) – set number of book he/she taken out
+
 string getname() – get name
+
 string getphonenum() – get phone number
+
 int getcardnum() – get card number
+
 int getbooksout() – get number of books he/she taken out
+
 Class Card has variables name, phonenum, cardnum, and booksout
+
 Phase 2:
+
 Book() – default constructor
+
 Book(string & Title, string &Author, string &isbn, int &Status, int &Holder) – constructor
+
 Book(const Book &cScouce) – copy constructor
 Book & operator = (const Book &cScource) – operator = constructor
 ~Book() - deconstructor
 Void setTitle(string Title) – set title of book
 Void setAuthor(string Author) – set author of book
 Void setISBN(string isbn) – set isbn number of book
-
-
-
-
-
-
-
-
 void setStatus(int status) – set status of book
 void setholder(int holder) – set the holder id number of the person holding the book
 string getTitle() – get title of book
