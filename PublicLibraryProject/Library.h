@@ -18,7 +18,7 @@ private:
 	int numCards;
 	int numBooks;
 
-	vector<Cards> cardlist;			//STL container vector of cards
+	vector<Card> cardlist;			//STL container vector of cards
 	vector<Book> booklist;			//STL container vector of books
 
 	//Composing Book and Card

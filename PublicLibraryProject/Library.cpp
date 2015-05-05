@@ -10,7 +10,7 @@
 using namespace std;
 
 /*Reading out books and cards to the same  .txt file*/
-ofstream outnbooks("books.txt", ios_base::ate | ios_base::out | ios::app);
+ofstream outbooks("books.txt", ios_base::ate | ios_base::out | ios::app);
 ofstream outcards("books.txt", ios_base::ate | ios_base::out | ios::app);
 
 Library::Library()
@@ -23,7 +23,7 @@ Library::Library(ifstream& inbookfile, ifstream& incardfile)
 {
 	//Temp variables
 	string title, author, name, isbn;
-	int status, holdID, cardnum, booksout;
+	int status, holderID, cardnum, booksout;
 	string phonenum;
 
 	numBooks = 3;			//hard coding for testing
@@ -61,7 +61,7 @@ Library::Library(ifstream& inbookfile, ifstream& incardfile)
 
 		//TEST: incards.printcards();
 
-		cardslist.push_back(Card(name, phonenum, cardnum, booksout));
+		cardlist.push_back(Card(name, phonenum, cardnum, booksout));
 
 	}
 }
@@ -78,7 +78,7 @@ void Library::setnumBooks(int snbooks)
 }
 
 //Checks in books by books ISBN number and holders ID card number
-void Library::checkin()
+void Library::checkIn()
 {
 	string isbnum; 
 	int holderID;
@@ -96,7 +96,7 @@ void Library::checkin()
 		{
 			//setting info below
 			booklist[i].setStatus(0);
-			booklist[i].setgolder(0);
+			booklist[i].setholder(0);
 
 			booksout -= 1;
 			cardlist[i].setbooksout(booksout);
@@ -108,7 +108,7 @@ void Library::checkin()
 }
 
 //search by ISBN and check out by ID card number
-void Library::checkout()
+void Library::checkOut()
 {
 	//declared variables
 	string isbnum;
@@ -120,7 +120,7 @@ void Library::checkout()
 	cout << "Enter the ISBN of the book: " << endl;
 	cin >> isbnum;
 	cout << "Enter holders ID card number: " << endl;
-	cin holderID;
+	cin >> holderID;
 
 	for (int i = 0; i <= booklist.size(); i++)
 	{
@@ -146,7 +146,7 @@ void Library::checkout()
 
 //adds books to the collection by asking for title, author and ISBN
 
-void Library::adBook()
+void Library::addBook()
 {
 	//Temp variables
 	string title, author, isbn;
@@ -172,7 +172,7 @@ void Library::adBook()
 		inbooks[i].setholder(holderid);
 
 		//pushes everything into the vector as well as the book constructor
-		booklist.push_back(Book(title,author,isbn,status,holderid))
+		booklist.push_back(Book(title, author, isbn, status, holderid));
 	}
 
 }
@@ -193,7 +193,7 @@ void Library::addCard()
 	getline(cin, name);
 	cout << "Enter persons phone number: ";
 	getline(cin, phonenum);
-	cout << "create a card number: ":
+	cout << "create a card number: ";
 	cin >> cardnum;
 
 	incards.setname(name);
@@ -223,7 +223,7 @@ void Library::showCards()
 }
 
 //saves all, writes everything to the correct .txt files
-void Lirary::saveall()
+void Library::saveAll()
 {
 	ofstream outcardss("cards.txt", ios::ate | ios::out | ios::app);
 
@@ -271,10 +271,10 @@ int Library::doCommand(int command)
 		showBooks();
 		break;
 	case 3:
-		checkin();
+		checkIn();
 		break;
 	case 4:
-		checkout();
+		checkOut();
 		break;
 	case 5:
 		addCard();
@@ -283,7 +283,7 @@ int Library::doCommand(int command)
 		addBook();
 		break;
 	case 0:
-		saveall();
+		saveAll();
 		break;
 
 	}

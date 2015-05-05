@@ -47,7 +47,7 @@ void Card::setbooksout(int Booksout)
 }
 
 //getters
-void Card::getname()
+string Card::getname()
 {
 	return name;
 }
